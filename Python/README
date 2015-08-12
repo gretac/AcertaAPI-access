@@ -1,0 +1,174 @@
+Acerta Remote API Access
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+The scripts in this directory provide a convenient way to access Acerta's
+publicly available remote API.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+## System Requirements
+
+Python = 2.7.x
+Pip >= 1.x
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+## Setup
+
+The setup.sh bash script can be run to install the required python libraries.
+Python and Pip are expected to be already installed on the system.
+
+Usage: sh setup.sh
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+## Configuration
+
+The config.py file containts the configuration for the scripts.
+
+The "LOGIN Credentials" section should be modified to include the correct
+credentials to access Acerta's servers.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+## API access scripts
+
+This section contains the description and usage information for each of the
+API access scripts provided.
+
+--------------------------------------------------------------------------------
+### create_system.py
+
+Usage: python create_system.py system_name
+
+Args1: system_name is the desired name of the system
+
+The script will create a system (for example, "baseline" to contain all the
+baseline traces; or "test1" to contain test traces from one test run).
+
+--------------------------------------------------------------------------------
+### list_systems.py
+
+Usage: python list_systems.py
+
+The script will list the existing systems on the server including their IDs and
+names.
+
+--------------------------------------------------------------------------------
+### delete_system.py
+
+Usage: python delete_system.py system_id system_name
+
+Args1: system_id is the id of the system
+Args2: system_name is the name of the system
+
+The script will delete the system and all its associated trace files from the
+server. Caution, the system and its traces cannot be recovered after the
+operation.
+
+--------------------------------------------------------------------------------
+### list_traces.py
+
+Usage: python list_traces.py
+
+The script will list the existing systems on the server and all their traces.
+Each system listing includes the system ID and name.
+Each trace listing includes the trace ID, name, and type.
+
+--------------------------------------------------------------------------------
+### list_sys_traces.py
+
+Usage: python list_sys_traces.py system_id system_name
+
+Args1: system_id is the id of the system
+Args2: system_name is the name of the system
+
+The script will list all traces for the specified system.
+Each trace listing includes the trace ID, name, and type.
+
+--------------------------------------------------------------------------------
+### delete_trace.py
+
+Usage: python delete_trace.py system_id system_name trace_id
+
+Args1: system_id is the id of the system
+Args2: system_name is the name of the system
+Args3: trace_id is the id of the trace
+
+The script will delete the specified trace from the given system.
+If the trace is not part of the specified system, no change will occur.
+
+--------------------------------------------------------------------------------
+### upload_trace.py
+
+Usage: python upload_trace.py system_id system_name file_path [type]
+
+Args1: system_id is the id of the system
+Args2: system_name is the name of the system
+Args3: file_path is the path to the trace file to be uploaded to the specified
+       system
+Args4: type is an optional argument that specifies the type of the system trace;
+       the type indicates the system from which the trace was collected;
+       when not specified, the script attempts to automatically determine the
+       type based on the trace extension; if it does not succeed, it will ask
+       the user to specify the type explicitly.
+
+       The following are the currently supported types:
+       1. QNX
+       2. CAN
+
+       The following are the automatically supported extensions:
+       1. .kev, .trace
+       2. .asc, .csv
+
+The script will upload the specified trace to the server and include it as part
+of the specified system. Check the "Compressed trace files" section for
+information about the support for compressed trace files.
+
+--------------------------------------------------------------------------------
+### upload_tracedir.py
+
+Usage: python upload_trace.py system_id system_name dir_path [type]
+
+Args1: system_id is the id of the system
+Args2: system_name is the name of the system
+Args3: dir_path is the path to the directory that contains the trace files to be
+       uploaded to the specified system;
+       the script will attempt to upload each file found within the directory;
+Args4: type is an optional argument that specifies the type of the system trace;
+       please refer to the argument description in the "upload_trace.py" section
+
+
+The script will upload the traces found in the specified directory to the
+server and include them as part of the specified system. The trace files are
+added to the system, no existing system traces are removed. Check the
+"Compressed trace files" section for information about the support for
+compressed trace files.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+## Compressed trace files
+
+Large trace files may take a while to be uploaded to the server. To improve the
+upload performance Acerta supports the upload of comressed traces.
+
+The following compressions are supported:
+1. gzip
+2. bzip2
+3. xz
+
+The type of compression used will be identified based on the file extension.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Date:   August 10, 2015
+Author: Greta Cutulenco
+Email:  gcutulenco@acerta.ca
+
+
+
+
+
+
