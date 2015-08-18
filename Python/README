@@ -53,6 +53,9 @@ Args1: system_name is the desired name of the system
 The script will create a system (for example, "baseline" to contain all the
 baseline traces; or "test1" to contain test traces from one test run).
 
+NOTE: System names must be unique. Use 'list_systems.py' (next) to see the
+existing systems.
+
 --------------------------------------------------------------------------------
 ### list_systems.py
 
