@@ -79,4 +79,4 @@ if r.status_code != 200:
   print r.text
   SYSTEM.exit(1)
 
-print 'DONE'
+print 'Trace ' + traceId + ' from system ' + system['name'] + ' deleted.'

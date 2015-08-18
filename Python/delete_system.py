@@ -60,4 +60,4 @@ if r.status_code != 200:
   print r.text
   SYSTEM.exit(1)
 
-print 'DONE'
+print 'System ' + system['name'] + ' deleted.'
