@@ -14,18 +14,18 @@ r = s.post(urlLogin, params=AUTH)
 # Input args and help
 
 def printHelp():
-  print "Default Usage: python list_sys_traces.py system_id system_name"
+  print "Default Usage: python list_sys_traces.py system_name"
 
 if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
   SYSTEM.exit(0)
 
-if len(SYSTEM.argv) < 3:
+if len(SYSTEM.argv) < 2:
   printHelp()
   SYSTEM.exit(1)
 
-system = { 'id': SYSTEM.argv[1] ,'name': SYSTEM.argv[2] }
-sysPayload = {'system': json.dumps(system)}
+systemName = SYSTEM.argv[1]
+sysPayload = {'systemName': systemName}
 
 ################################################################
 # Check for system existence on server
@@ -39,8 +39,10 @@ if r.status_code != 200:
 serverSys = r.json()
 
 if not serverSys:
-  print 'System ID: ' + str(system['id']) + ' Name: ' + system['name'] + ' is NOT found'
+  print 'System ' + systemName + ' is NOT found'
   SYSTEM.exit(1)
+
+sysPayload = {'system': json.dumps(serverSys)}
 
 ################################################################
 # List of available (uploaded) traces for a specified system
@@ -53,7 +55,7 @@ if r.status_code != 200:
 
 sysTraces = r.json()
 
-print 'System ID: ' + str(system['id']) + ' Name: ' + system['name']
+print 'System ' + systemName
 print ""
 
 for trace in sysTraces:

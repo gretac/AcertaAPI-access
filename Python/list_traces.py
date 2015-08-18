@@ -29,24 +29,20 @@ traces = r.json()
 
 systems = {}
 for trace in traces:
-  sysId = trace['system']['id']
-  if sysId in systems:
-    sys = systems[sysId]
+  sysName = trace['system']['name']
+  if sysName in systems:
+    sys = systems[sysName]
   else:
-    sys = systems[sysId] = []
+    sys = systems[sysName] = []
   sys.append(trace)
 
 for sys in systems:
+  print 'System ' + sys
+  print ""
+
   sysTraces = systems[sys]
-  printedSyInfo = False
-
   for trace in sysTraces:
-    if not printedSyInfo:
-      sys = trace['system']
-      print 'System ID: ' + str(sys['id']) + ' Name: ' + sys['name']
-      print ""
-      printedSyInfo = True
-
     print 'Trace ID: ' + str(trace['id']) + ' Name:  ' + trace['name'] + \
           ' Type: ' + trace['type']
+
   print ""

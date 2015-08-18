@@ -20,13 +20,13 @@ if r.status_code != 200:
 # Input args and help
 
 def printHelp():
-  print "Default Usage: python upload_trace.py system_id system_name dir_path [type]"
+  print "Default Usage: python upload_trace.py system_name dir_path [type]"
 
 if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
   SYSTEM.exit(0)
 
-if len(SYSTEM.argv) < 4:
+if len(SYSTEM.argv) < 3:
   printHelp()
   SYSTEM.exit(1)
 
@@ -35,10 +35,10 @@ def report_progress(monitor):
   print ("%.2f" % progress) + '% ...' ,
   SYSTEM.stdout.flush()
 
-system = { 'id': SYSTEM.argv[1] ,'name': SYSTEM.argv[2] }
-sysPayload = {'system': json.dumps(system)}
+systemName = SYSTEM.argv[1]
+sysPayload = {'systemName': systemName}
 
-dir_path = SYSTEM.argv[3]
+dir_path = SYSTEM.argv[2]
 
 if not os.path.isdir(dir_path):
   print "Cannot locate the traces directory."
@@ -56,8 +56,11 @@ if r.status_code != 200:
 serverSys = r.json()
 
 if not serverSys:
-  print 'System ID: ' + str(system['id']) + ' Name: ' + system['name'] + ' is NOT found'
+  print 'System ' + systemName + ' is NOT found'
   SYSTEM.exit(1)
+
+sysPayload = {'system': json.dumps(serverSys)}
+system = serverSys
 
 ################################################################
 # Upload trace
@@ -71,8 +74,13 @@ for traceName in traceNames:
 
   # determine file type
 
-  if len(SYSTEM.argv) == 5 and SYSTEM.argv[4]:
-    fileType = SYSTEM.argv[4]
+  supportedTypes = ['QNX', 'CAN']
+
+  if len(SYSTEM.argv) == 4 and SYSTEM.argv[3]:
+    fileType = SYSTEM.argv[3]
+    if fileType not in supportedTypes:
+      print "Unrecognized file type."
+      SYSTEM.exit(1)
   elif traceName.endswith('.kev') or traceName.endswith('.trace'):
     fileType = 'QNX'
   elif traceName.endswith('.asc'):

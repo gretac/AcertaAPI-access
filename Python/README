@@ -41,7 +41,7 @@ This section contains the description and usage information for each of the
 API access scripts provided.
 
 NOTE: If your system uses 'python' for Python 3.x by default, use 'python2'
-instead for the scripts below.
+to run the scripts below with Python 2.7.x.
 
 --------------------------------------------------------------------------------
 ### create_system.py
@@ -64,10 +64,9 @@ names.
 --------------------------------------------------------------------------------
 ### delete_system.py
 
-Usage: python delete_system.py system_id system_name
+Usage: python delete_system.py system_name
 
-Args1: system_id is the id of the system
-Args2: system_name is the name of the system
+Args1: system_name is the name of the system
 
 The script will delete the system and all its associated trace files from the
 server. Caution, the system and its traces cannot be recovered after the
@@ -85,10 +84,9 @@ Each trace listing includes the trace ID, name, and type.
 --------------------------------------------------------------------------------
 ### list_sys_traces.py
 
-Usage: python list_sys_traces.py system_id system_name
+Usage: python list_sys_traces.py system_name
 
-Args1: system_id is the id of the system
-Args2: system_name is the name of the system
+Args1: system_name is the name of the system
 
 The script will list all traces for the specified system.
 Each trace listing includes the trace ID, name, and type.
@@ -96,11 +94,10 @@ Each trace listing includes the trace ID, name, and type.
 --------------------------------------------------------------------------------
 ### delete_trace.py
 
-Usage: python delete_trace.py system_id system_name trace_id
+Usage: python delete_trace.py system_name trace_id
 
-Args1: system_id is the id of the system
-Args2: system_name is the name of the system
-Args3: trace_id is the id of the trace
+Args1: system_name is the name of the system
+Args2: trace_id is the id of the trace
 
 The script will delete the specified trace from the given system.
 If the trace is not part of the specified system, no change will occur.
@@ -108,13 +105,12 @@ If the trace is not part of the specified system, no change will occur.
 --------------------------------------------------------------------------------
 ### upload_trace.py
 
-Usage: python upload_trace.py system_id system_name file_path [type]
+Usage: python upload_trace.py system_name file_path [type]
 
-Args1: system_id is the id of the system
-Args2: system_name is the name of the system
-Args3: file_path is the path to the trace file to be uploaded to the specified
+Args1: system_name is the name of the system
+Args2: file_path is the path to the trace file to be uploaded to the specified
        system
-Args4: type is an optional argument that specifies the type of the system trace;
+Args3: type is an optional argument that specifies the type of the system trace;
        the type indicates the system from which the trace was collected;
        when not specified, the script attempts to automatically determine the
        type based on the trace extension; if it does not succeed, it will ask
@@ -135,14 +131,13 @@ information about the support for compressed trace files.
 --------------------------------------------------------------------------------
 ### upload_tracedir.py
 
-Usage: python upload_trace.py system_id system_name dir_path [type]
+Usage: python upload_trace.py system_name dir_path [type]
 
-Args1: system_id is the id of the system
-Args2: system_name is the name of the system
-Args3: dir_path is the path to the directory that contains the trace files to be
+Args1: system_name is the name of the system
+Args2: dir_path is the path to the directory that contains the trace files to be
        uploaded to the specified system;
        the script will attempt to upload each file found within the directory;
-Args4: type is an optional argument that specifies the type of the system trace;
+Args3: type is an optional argument that specifies the type of the system trace;
        please refer to the argument description in the "upload_trace.py" section
 
 
@@ -169,7 +164,7 @@ The type of compression used will be identified based on the file extension.
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
-Date:   August 10, 2015
+Date:   August 18, 2015
 Author: Greta Cutulenco
 Email:  gcutulenco@acerta.ca
 
