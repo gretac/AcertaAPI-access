@@ -19,7 +19,10 @@ Pip >= 1.x
 The setup.sh bash script can be run to install the required python libraries.
 Python and Pip are expected to be already installed on the system.
 
-Usage: sh setup.sh
+Usage: ./setup.sh
+
+NOTE: Pip will likely need root access to install the required packages. Run
+sudo ./setup.sh in that case.
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -36,6 +39,9 @@ credentials to access Acerta's servers.
 
 This section contains the description and usage information for each of the
 API access scripts provided.
+
+NOTE: If your system uses 'python' for Python 3.x by default, use 'python2'
+instead for the scripts below.
 
 --------------------------------------------------------------------------------
 ### create_system.py
