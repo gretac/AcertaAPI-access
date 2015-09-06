@@ -9,7 +9,7 @@ publicly available remote API.
 --------------------------------------------------------------------------------
 ## System Requirements
 
-Python = 2.7.x
+Python >= 2.7.x (ideallly 2.9.x)
 Pip >= 1.x
 
 --------------------------------------------------------------------------------
@@ -149,6 +149,16 @@ server and include them as part of the specified system. The trace files are
 added to the system, no existing system traces are removed. Check the
 "Compressed trace files" section for information about the support for
 compressed trace files.
+
+--------------------------------------------------------------------------------
+### generate_report.py
+
+Usage: python generate_report.py baseline_system_name test_system_name test_trace_name
+
+Args1: baseline_system_name is the name of the system containing all traces to
+       be used as the reference (normal) behavior for the analysis
+Args2: test_system_name is the name of the system containing the test trace
+Args3: test_trace_name is the name of the trace to be analyzed against the baseline
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
