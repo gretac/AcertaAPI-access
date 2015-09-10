@@ -151,6 +151,14 @@ added to the system, no existing system traces are removed. Check the
 compressed trace files.
 
 --------------------------------------------------------------------------------
+### get_report_analyses.py
+
+Usage: python get_report_analyses.py
+
+This script returns the names of the analytics for which reports and report 
+forms maybe obtained. These names can then be used in the get_report_form.py 
+script.
+--------------------------------------------------------------------------------
 ### get_report_form.py
 
 Usage: python get_report_form.py analysis_name system_name trace_name
