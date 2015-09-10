@@ -134,7 +134,7 @@ information about the support for compressed trace files.
 --------------------------------------------------------------------------------
 ### upload_tracedir.py
 
-Usage: python upload_trace.py system_name dir_path [type]
+Usage: python upload_tracedir.py system_name dir_path [type]
 
 Args1: system_name is the name of the system
 Args2: dir_path is the path to the directory that contains the trace files to be
