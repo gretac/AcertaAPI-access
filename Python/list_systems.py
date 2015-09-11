@@ -12,6 +12,9 @@ r = s.post(urlLogin, params=AUTH)
 ################################################################
 # Input args and help
 
+def printHelp():
+  print "Default Usage: python list_systems.py"
+
 if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
   SYSTEM.exit(0)

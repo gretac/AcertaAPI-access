@@ -12,8 +12,11 @@ r = s.post(urlLogin, params=AUTH)
 ################################################################
 # Input args and help
 
-if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
+def printHelp():
   print "Default Usage: python list_traces.py"
+
+if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
+  printHelp()
   SYSTEM.exit(0)
 
 ################################################################

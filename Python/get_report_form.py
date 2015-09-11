@@ -14,7 +14,7 @@ r = s.post(urlLogin, params=AUTH)
 # Input args and help
 
 def printHelp():
-  print "Default Usage: python get_report_form.py analysis_type sys_name trace_name"
+  print "Default Usage: python get_report_form.py analysis_name system_name trace_name"
 
 if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
@@ -26,11 +26,11 @@ if len(SYSTEM.argv) < 2:
 
 sysPayload = { 'analysis': SYSTEM.argv[1], 'system': SYSTEM.argv[2], 'trace': SYSTEM.argv[3] }
 
-print sysPayload
 r = s.post(urlForms, data=json.dumps(sysPayload))
 
 if r.status_code != 200:
   print r.text
   SYSTEM.exit(1)
 formHtml = r.json()
+
 print(formHtml['form']);
