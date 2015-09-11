@@ -155,23 +155,24 @@ compressed trace files.
 
 Usage: python get_report_analyses.py
 
-This script returns the names of the analytics for which reports and report 
-forms maybe obtained. These names can then be used in the get_report_form.py 
-script.
+This script returns the names of the analytics that may be included in reports
+and for which report forms maybe obtained. These names can then be used in the
+get_report_form.py script.
+
 --------------------------------------------------------------------------------
 ### get_report_form.py
 
 Usage: python get_report_form.py analysis_name system_name trace_name
 
 Args1: analysis_name is the type of analysis for which you'd like to get a pre-
-       filled form for. A list of available analyses accessible to the current 
+       filled form. A list of available analyses accessible to the current
        user can be obtained by using the get_report_analyses.py script.
 Args2: system_name is the name of the system
-Args3: trace_name is the human-readable file name of the trace. Available traces
-       maybe obtained from the list_sys_traces.py script.
+Args3: trace_name is the file name of the trace. Available traces may be
+       obtained using the list_traces.py or list_sys_traces.py scripts.
 
-This script gets a prefilled bootstrap 3 html form for the specified analysis, 
-system and trace combination.   
+This script gets a prefilled bootstrap 3 html form for the specified analysis,
+system and trace combination.
 
 --------------------------------------------------------------------------------
 ## Compressed trace files
@@ -189,7 +190,7 @@ The type of compression used will be identified based on the file extension.
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
-Date:   August 18, 2015
+Date:   September 11, 2015
 Author: Greta Cutulenco
 Email:  gcutulenco@acerta.ca
 
