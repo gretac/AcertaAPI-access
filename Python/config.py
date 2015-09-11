@@ -17,3 +17,5 @@ urlSys = HTTPS + HOST + ":" + PORT + "/api/systems"
 
 urlFiles = HTTPS + HOST + ":" + PORT + "/api/files"
 urlSysFiles = HTTPS + HOST + ":" + PORT + "/api/files/sys"
+urlForms = HTTP + HOST + ":" + PORT + "/api/reports/form"
+urlAnalysis = HTTP + HOST + ":" + PORT + "/api/reports/analytics"

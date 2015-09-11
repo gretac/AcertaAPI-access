@@ -151,6 +151,28 @@ added to the system, no existing system traces are removed. Check the
 compressed trace files.
 
 --------------------------------------------------------------------------------
+### get_report_analyses.py
+
+Usage: python get_report_analyses.py
+
+This script returns the names of the analytics for which reports and report 
+forms maybe obtained. These names can then be used in the get_report_form.py 
+script.
+--------------------------------------------------------------------------------
+### get_report_form.py
+
+Usage: python get_report_form.py analysis_name system_name trace_name
+
+Args1: analysis_name is the type of analysis for which you'd like to get a pre-
+       filled form for. A list of available analyses accessible to the current 
+       user can be obtained by using the get_report_analyses.py script.
+Args2: system_name is the name of the system
+Args3: trace_name is the human-readable file name of the trace. Available traces
+       maybe obtained from the list_sys_traces.py script.
+
+This script gets a prefilled bootstrap 3 html form for the specified analysis, 
+system and trace combination.   
+
 --------------------------------------------------------------------------------
 ## Compressed trace files
 
