@@ -153,12 +153,19 @@ compressed trace files.
 --------------------------------------------------------------------------------
 ### generate_report.py
 
-Usage: python generate_report.py baseline_system_name test_system_name test_trace_name
+Usage: python generate_report.py baseline_system_name test_system_name test_trace_name [email]
 
 Args1: baseline_system_name is the name of the system containing all traces to
        be used as the reference (normal) behavior for the analysis
 Args2: test_system_name is the name of the system containing the test trace
 Args3: test_trace_name is the name of the trace to be analyzed against the baseline
+Args4: email is the email of the recepient of the report
+
+The script will generate an anomaly summary report for the test trace and email
+the result. The report will compare the specified test trace against all traces
+in the baseline system. By default, the report is sent to the user's email.
+If a different email is specified, the report will be specified to the given
+recepient.
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

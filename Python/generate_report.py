@@ -14,7 +14,7 @@ r = s.post(urlLogin, params=AUTH)
 # Input args and help
 
 def printHelp():
-  print "Default Usage: python generate_report.py baseline_system_name test_system_name test_trace_name"
+  print "Default Usage: python generate_report.py baseline_system_name test_system_name test_trace_name [email]"
 
 if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
@@ -91,6 +91,9 @@ reportPayload = {
   'traceName': testTraceName,
   'baseline': json.dumps(baseline)
 }
+
+if (SYSTEM.argv[4]):
+  reportPayload['email'] = SYSTEM.argv[4]
 
 r = s.post(urlReport, data=reportPayload)
 
