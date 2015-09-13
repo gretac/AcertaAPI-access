@@ -1,7 +1,7 @@
 import sys as SYSTEM
 import requests
 
-from config import AUTH, urlLogin, urlSys
+from config import AUTH, urlLogin, urlAnalysis
 
 ### SETUP ###
 # start a session
@@ -13,22 +13,22 @@ r = s.post(urlLogin, params=AUTH)
 # Input args and help
 
 def printHelp():
-  print "Default Usage: python list_systems.py"
+  print "Default Usage: python get_report_analyses.py"
 
 if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
   SYSTEM.exit(0)
 
 ################################################################
-# List of available systems
+# List of available analyses
 
-r = s.get(urlSys)
+r = s.get(urlAnalysis)
 
 if r.status_code != 200:
   print r.text
   SYSTEM.exit(1)
 
-systems = r.json()
+analyses = r.json()
 
-for sys in systems:
-  print 'System ID: ' + str(sys['id']) + ' Name: ' + sys['name']
+for analysis in analyses['result']:
+  print 'Analysis Name: ' + str(analysis);

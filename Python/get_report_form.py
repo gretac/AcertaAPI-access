@@ -1,7 +1,8 @@
 import sys as SYSTEM
+import json
 import requests
 
-from config import AUTH, urlLogin, urlSys
+from config import AUTH, urlLogin, urlForms
 
 ### SETUP ###
 # start a session
@@ -13,22 +14,23 @@ r = s.post(urlLogin, params=AUTH)
 # Input args and help
 
 def printHelp():
-  print "Default Usage: python list_systems.py"
+  print "Default Usage: python get_report_form.py analysis_name system_name trace_name"
 
 if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
   SYSTEM.exit(0)
 
-################################################################
-# List of available systems
+if len(SYSTEM.argv) < 2:
+  printHelp()
+  SYSTEM.exit(1)
 
-r = s.get(urlSys)
+sysPayload = { 'analysis': SYSTEM.argv[1], 'system': SYSTEM.argv[2], 'trace': SYSTEM.argv[3] }
+
+r = s.post(urlForms, data=json.dumps(sysPayload))
 
 if r.status_code != 200:
   print r.text
   SYSTEM.exit(1)
+formHtml = r.json()
 
-systems = r.json()
-
-for sys in systems:
-  print 'System ID: ' + str(sys['id']) + ' Name: ' + sys['name']
+print(formHtml['form']);
