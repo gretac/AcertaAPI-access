@@ -9,7 +9,7 @@ publicly available remote API.
 --------------------------------------------------------------------------------
 ## System Requirements
 
-Python = 2.7.x
+Python >= 2.7.x (ideallly 2.9.x)
 Pip >= 1.x
 
 --------------------------------------------------------------------------------
@@ -151,6 +151,23 @@ added to the system, no existing system traces are removed. Check the
 compressed trace files.
 
 --------------------------------------------------------------------------------
+### generate_report.py
+
+Usage: python generate_report.py baseline_system_name test_system_name test_trace_name [email]
+
+Args1: baseline_system_name is the name of the system containing all traces to
+       be used as the reference (normal) behavior for the analysis
+Args2: test_system_name is the name of the system containing the test trace
+Args3: test_trace_name is the name of the trace to be analyzed against the baseline
+Args4: email is the email of the recepient of the report
+
+The script will generate an anomaly summary report for the test trace and email
+the result. The report will compare the specified test trace against all traces
+in the baseline system. By default, the report is sent to the user's email.
+If a different email is specified, the report will be specified to the given
+recepient.
+
+--------------------------------------------------------------------------------
 ### get_report_analyses.py
 
 Usage: python get_report_analyses.py
@@ -190,7 +207,7 @@ The type of compression used will be identified based on the file extension.
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
-Date:   September 11, 2015
+Date:   September 13, 2015
 Author: Greta Cutulenco
 Email:  gcutulenco@acerta.ca
 
