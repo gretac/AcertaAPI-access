@@ -168,7 +168,7 @@ If a different email is specified, the report will be specified to the given
 recepient.
 
 --------------------------------------------------------------------------------
-### get_report_analyses.py
+### get_report_analyses.py (BETA)
 
 Usage: python get_report_analyses.py
 
@@ -177,7 +177,7 @@ and for which report forms maybe obtained. These names can then be used in the
 get_report_form.py script.
 
 --------------------------------------------------------------------------------
-### get_report_form.py
+### get_report_form.py (BETA)
 
 Usage: python get_report_form.py analysis_name system_name trace_name
 
