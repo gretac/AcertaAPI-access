@@ -92,7 +92,7 @@ reportPayload = {
   'baseline': json.dumps(baseline)
 }
 
-if (SYSTEM.argv[4]):
+if (len(SYSTEM.argv) == 5):
   reportPayload['email'] = SYSTEM.argv[4]
 
 r = s.post(urlReport, data=reportPayload)
