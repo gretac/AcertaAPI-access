@@ -26,6 +26,6 @@ if r.status_code != 200:
   SYSTEM.exit(1)
 
 analyses = r.json()
-
-for analysis in analyses['result']:
-  print 'Analysis Name: ' + str(analysis);
+for elm in analyses['result']:
+    for k in elm:
+        print str(k) +': ' + str(elm[k]);
