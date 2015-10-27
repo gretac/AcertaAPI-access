@@ -173,19 +173,21 @@ recepient.
 Usage: python get_report_analyses.py
 
 This script returns the names of the analytics that may be included in reports
-and for which report forms maybe obtained. These names can then be used in the
-get_report_form.py script.
+and for which report forms maybe obtained. The script also returns the trace types
+that may be used for an analytic. Type maybe 'single' or 'multi'.These names can
+then be used in the get_report_form.py script.
 
 --------------------------------------------------------------------------------
 ### get_report_form.py (BETA)
 
-Usage: python get_report_form.py analysis_name system_name trace_name
+Usage: python get_report_form.py analysis_name system_name comma_separated_trace_names
 
 Args1: analysis_name is the type of analysis for which you'd like to get a pre-
        filled form. A list of available analyses accessible to the current
        user can be obtained by using the get_report_analyses.py script.
 Args2: system_name is the name of the system
-Args3: trace_name is the file name of the trace. Available traces may be
+Args3: comma_separated_trace_file_names - this can be 'car1.trace' or 
+       'car1.trace,car4.trace,trace4.kev'. Available traces may be
        obtained using the list_traces.py or list_sys_traces.py scripts.
 
 This script gets a prefilled bootstrap 3 html form for the specified analysis,
