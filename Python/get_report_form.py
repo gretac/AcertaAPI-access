@@ -20,7 +20,7 @@ if len(SYSTEM.argv) > 1 and SYSTEM.argv[1] == "-h":
   printHelp()
   SYSTEM.exit(0)
 
-if len(SYSTEM.argv) < 2:
+if len(SYSTEM.argv) < 4:
   printHelp()
   SYSTEM.exit(1)
 
